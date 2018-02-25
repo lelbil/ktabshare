@@ -1,0 +1,1 @@
+This is a docker-compose build for running a Ktabshare local stack locally.

@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mongo
+    ports:
+      - 27017
+
+  api:
+    image: lelbil/ktabshare-api:dev
+    environment:
+      PORT: 3005
+      DB_URI: mongodb://db/ktabshare
+    ports:
+      - 8001:3005
+    depends_on:
+      - db
+    links:
+      - db
+    hostname: api
+
+  front:
+    image: lelbil/ktabshare-front:dev
+    ports:
+      - 8000:3000
+    environment:
+      REACT_APP_API_URI: localhost:8001
+    depends_on:
+      - api
