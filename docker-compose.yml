@@ -7,7 +7,7 @@ services:
       - 27017
 
   api:
-    image: lelbil/ktabshare-api:dev
+    image: lelbil/ktabshare-api:latest
     environment:
       PORT: 3005
       DB_URI: mongodb://db/ktabshare
@@ -20,7 +20,7 @@ services:
     hostname: api
 
   front:
-    image: lelbil/ktabshare-front:dev
+    image: lelbil/ktabshare-front:latest
     ports:
       - 8000:3000
     environment:
