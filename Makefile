@@ -1,5 +1,5 @@
 populate_db:
-	@docker-compose exec -t ktabshare_api_1 /bin/bash -c "node /usr/src/app/seeds/bookSeeds.js"
+	@docker-compose exec api node scripts/populate_books.js
 
 restart:
 	@docker-compose stop
